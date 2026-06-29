@@ -1,0 +1,37 @@
+{
+  "source_system": {
+    "type": "microsoft-365-sharepoint",
+    "name": "SYNTHETIC_M365_SOURCE",
+    "provider_hint": "microsoft-365",
+    "source_locator": "PLACEHOLDER_TENANT/PLACEHOLDER_SITE/PLACEHOLDER_LIBRARY/PLACEHOLDER_FOLDER"
+  },
+  "approved_scope": {
+    "description": "Synthetic approved folder scope for adapter tests.",
+    "approved_by": "synthetic-review-owner",
+    "approved_at": "2026-06-29T00:00:00Z",
+    "included_roots": [
+      "Shared Documents/Synthetic Team Space"
+    ],
+    "excluded_roots": [
+      "Restricted Areas",
+      "People",
+      "Raw Exports",
+      "Credentials"
+    ],
+    "allowed_extensions": [
+      ".md",
+      ".json",
+      ".yaml",
+      ".yml"
+    ],
+    "max_depth": 4,
+    "notes": "Synthetic config only. Do not replace placeholders with tenant values in public examples."
+  },
+  "sensitivity": {
+    "level": "public-synthetic",
+    "generated_outputs_inherit_sensitivity": true,
+    "may_commit_snapshot": true,
+    "may_commit_generated_outputs": true,
+    "notes": "Synthetic fixture output may be committed only when generated from fabricated inputs."
+  }
+}

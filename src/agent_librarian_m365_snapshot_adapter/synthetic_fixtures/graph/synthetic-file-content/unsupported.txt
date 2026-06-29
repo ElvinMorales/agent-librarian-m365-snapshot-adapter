@@ -1,0 +1,1 @@
+This fabricated file proves that extensions outside the allowlist are excluded.

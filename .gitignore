@@ -1,0 +1,17 @@
+.env
+.env.*
+!.env.example
+.tmp/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+*.egg-info/
+build/
+dist/
+*.token
+*token*
+*secret*
+credentials*.json
+logs/
+snapshots/

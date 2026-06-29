@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agent-librarian-m365-snapshot-adapter"
+version = "0.1.0"
+description = "Offline-safe Microsoft 365 source snapshot adapter prototype"
+readme = "README.md"
+requires-python = ">=3.10"
+license = "MIT"
+authors = [{ name = "Elvin Morales" }]
+classifiers = [
+  "Development Status :: 2 - Pre-Alpha",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3 :: Only",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = [
+  "jsonschema[format]>=4.23",
+  "pytest>=8.0",
+]
+
+[project.scripts]
+m365-snapshot-adapter = "agent_librarian_m365_snapshot_adapter.cli:main"
+
+[tool.setuptools.package-data]
+agent_librarian_m365_snapshot_adapter = [
+  "synthetic_fixtures/graph/*.json",
+  "synthetic_fixtures/graph/synthetic-file-content/*",
+]
+
+[tool.pytest.ini_options]
+addopts = "-ra"
+testpaths = ["tests"]

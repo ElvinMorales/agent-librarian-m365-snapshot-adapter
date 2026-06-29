@@ -1,0 +1,35 @@
+{
+  "@odata.context": "https://example.invalid/synthetic-graph-context",
+  "value": [
+    {
+      "id": "SYNTHETIC_ITEM_001",
+      "name": "policy-note.md",
+      "sourcePath": "Shared Documents/Synthetic Team Space/policy-note.md",
+      "lastModifiedDateTime": "2026-06-28T14:00:00Z",
+      "file": {
+        "mimeType": "text/markdown"
+      },
+      "syntheticContentPath": "policy-note.md"
+    },
+    {
+      "id": "SYNTHETIC_ITEM_002",
+      "name": "prompt-note.md",
+      "sourcePath": "Shared Documents/Synthetic Team Space/Guides/prompt-note.md",
+      "lastModifiedDateTime": "2026-06-28T15:30:00Z",
+      "file": {
+        "mimeType": "text/markdown"
+      },
+      "syntheticContentPath": "prompt-note.md"
+    },
+    {
+      "id": "SYNTHETIC_ITEM_003",
+      "name": "unsupported.txt",
+      "sourcePath": "Shared Documents/Synthetic Team Space/unsupported.txt",
+      "lastModifiedDateTime": "2026-06-28T16:00:00Z",
+      "file": {
+        "mimeType": "text/plain"
+      },
+      "syntheticContentPath": "unsupported.txt"
+    }
+  ]
+}
