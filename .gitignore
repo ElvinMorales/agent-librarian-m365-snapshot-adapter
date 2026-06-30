@@ -1,7 +1,11 @@
 .env
 .env.*
 !.env.example
+
+# Local temporary files
 .tmp/
+
+# Python environments, caches, and build outputs
 .venv/
 __pycache__/
 *.py[cod]
@@ -9,9 +13,32 @@ __pycache__/
 *.egg-info/
 build/
 dist/
+
+# Local generated exports and snapshots
+exports/
+private-exports/
+source-snapshots/
+synthetic-snapshot/
+*.snapshot/
+snapshots/
+
+# Local logs and traces
+*.log
+*.jsonl
+logs/
+traces/
+run-logs/
+
+# Auth/cache material that must never be committed
+.auth/
+auth/
+.token-cache/
+.msal_cache*
 *.token
 *token*
 *secret*
 credentials*.json
-logs/
-snapshots/
+*.pem
+*.pfx
+*.key
+*.cert

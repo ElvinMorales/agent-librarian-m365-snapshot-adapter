@@ -16,8 +16,20 @@ jobs:
         with:
           python-version: "3.12"
       - run: python -m pip install -e ".[dev]"
-      - run: pytest
+      - run: python -m pytest
       - name: Exercise synthetic CLI only
         run: |
           m365-snapshot-adapter check-config examples/approved-scope.example.json
           m365-snapshot-adapter export-synthetic --config examples/approved-scope.example.json --out .tmp/synthetic-snapshot
+      - name: Confirm live export fails closed
+        run: |
+          set +e
+          m365-snapshot-adapter export --config examples/approved-scope.example.json --out .tmp/live-should-fail
+          status=$?
+          set -e
+          if [ "$status" -eq 0 ]; then
+            echo "Expected live export to fail closed, but it exited 0."
+            exit 1
+          fi
+          echo "Live export failed closed as expected with exit code $status."
+      - run: git diff --check

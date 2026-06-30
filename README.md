@@ -4,11 +4,19 @@ This repository is the provider-specific companion adapter for
 [`agent-librarian`](https://github.com/ElvinMorales/agent-librarian). It is for
 operators who need to turn a narrowly approved Microsoft 365 / SharePoint folder
 scope into a local source snapshot before using the provider-neutral core CLI.
+It is not the core `agent-librarian` package; the core remains local-first and
+provider-neutral.
 
 The repository exists to keep authentication, authorization, Microsoft Graph
 behavior, and provider dependencies outside the local-first core package. The
 only integration boundary is a local snapshot containing `source-manifest.json`
 and a `files/` tree compatible with the core source snapshot contract.
+
+The current implementation is synthetic and offline only. Public examples are
+fabricated, and the live `export` command fails closed. No live connector,
+Microsoft Graph access, OAuth/MSAL flow, provider SDK, tenant discovery, or
+network behavior is implemented. Generated snapshots and any derived catalogs,
+reports, or presentations inherit the sensitivity of their source.
 
 ## Current status
 
@@ -31,13 +39,20 @@ Intentionally not implemented:
 The synthetic demo proves only the local output shape. It does not prove that a
 live connector is ready, authorized, least-privileged, or safe for production.
 
+## What to use now
+
+Use `check-config` and `export-synthetic` to validate the local snapshot shape
+and safety boundaries. The live `export` command is intentionally fail-closed
+until separate [live-export security gates](docs/live-export-security-gates.md)
+are designed, reviewed, and approved.
+
 ## Quickstart
 
 ```bash
 python -m pip install -e ".[dev]"
 m365-snapshot-adapter check-config examples/approved-scope.example.json
 m365-snapshot-adapter export-synthetic --config examples/approved-scope.example.json --out .tmp/synthetic-snapshot
-pytest
+python -m pytest
 ```
 
 The exporter refuses to replace an existing output directory. Remove or choose
@@ -68,7 +83,9 @@ or presentation inherit the source sensitivity.
 
 See [the security model](docs/security-model.md),
 [approved-scope configuration](docs/approved-scope-config.md), and
-[the synthetic demo](docs/synthetic-demo.md).
+[the synthetic demo](docs/synthetic-demo.md). Future live work is blocked by the
+[live-export security gates backlog](docs/live-export-security-gates.md); that
+backlog does not approve a live implementation.
 
 ## Release boundary
 
