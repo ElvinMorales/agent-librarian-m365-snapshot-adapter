@@ -55,8 +55,11 @@ Relevant official guidance:
 
 ## Live security gates
 
-Before live code is added, review and approve the exact identity type, Selected
-resource grant, operation allowlist, endpoint set, pagination and retry bounds,
-configuration source, auth cache handling, redaction behavior, local destination,
-rollback plan, and outside-public-CI tenant test procedure. A live tenant test
+The [live-export security gates backlog](live-export-security-gates.md) records
+the design and review gates required before live code may be added. It is a
+governance artifact, not approval to implement live export. A live tenant test
 must never run in public CI and must never produce a committed snapshot.
+
+For the current offline boundary, see the
+[approved-scope configuration](approved-scope-config.md) and
+[synthetic demo](synthetic-demo.md).

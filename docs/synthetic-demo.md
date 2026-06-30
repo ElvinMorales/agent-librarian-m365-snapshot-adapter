@@ -30,3 +30,11 @@ Tests and the demo use local fixtures only. They make no live Graph call, requir
 no Microsoft SDK, and use no tenant or auth configuration. A successful demo
 does not prove live connector readiness. Any live tenant test must remain outside
 public CI, and real snapshots and derived catalogs must never be committed.
+
+All names, IDs, timestamps, paths, and file contents used by this demo are
+fabricated placeholders. Do not replace them with real tenant, site, drive,
+folder, or document values in this repository.
+
+See the [security model](security-model.md) and
+[approved-scope configuration](approved-scope-config.md) for the controls this
+demo exercises.
